@@ -10,5 +10,6 @@ public:
 	~Scene() {}
 	void Update() {}
 	void Render() {}
+	void AddObj(OBJ* newObj) { objs.push_back(newObj); }
 
 };

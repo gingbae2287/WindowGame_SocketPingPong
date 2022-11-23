@@ -40,6 +40,15 @@
     <ClCompile Include="tools\GingTime.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Components\Collider.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\OBJ.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\MyGDI.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\Core.h">
@@ -66,7 +75,7 @@
     <ClInclude Include="tools\MyTools.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="tools\OBJ.h">
+    <ClInclude Include="Components\OBJ.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="tools\Scene.h">
@@ -75,7 +84,22 @@
     <ClInclude Include="tools\SceneManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="tools\Transform.h">
+    <ClInclude Include="Components\Transform.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Collider.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\Vector2.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\Component.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\MyGDI.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\define.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

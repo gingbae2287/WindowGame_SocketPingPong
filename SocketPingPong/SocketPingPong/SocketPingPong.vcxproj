@@ -71,10 +71,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\coding\socketPingpong\SocketPingPong\SocketPingPong\tools;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\source;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\header;$(IncludePath)</IncludePath>
+    <IncludePath>C:\coding\socketPingpong\SocketPingPong\SocketPingPong\socket;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\tools;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\source;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\header;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\coding\socketPingpong\SocketPingPong\SocketPingPong\tools;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\source;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\header;$(IncludePath)</IncludePath>
+    <IncludePath>C:\coding\socketPingpong\SocketPingPong\SocketPingPong\socket;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\tools;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\source;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\header;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -140,6 +140,9 @@
     <Image Include="SocketPingPong.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Components\Collider.cpp" />
+    <ClCompile Include="Components\OBJ.cpp" />
+    <ClCompile Include="tools\MyGDI.cpp" />
     <ClCompile Include="source\Core.cpp" />
     <ClCompile Include="source\MyWindow.cpp" />
     <ClCompile Include="source\SocketPingPong.cpp" />
@@ -151,13 +154,18 @@
     <ClInclude Include="header\MyWindow.h" />
     <ClInclude Include="header\Resource.h" />
     <ClInclude Include="header\targetver.h" />
+    <ClInclude Include="Components\Collider.h" />
+    <ClInclude Include="tools\MyGDI.h" />
+    <ClInclude Include="tools\Component.h" />
+    <ClInclude Include="tools\define.h" />
     <ClInclude Include="tools\GingTime.h" />
     <ClInclude Include="tools\KeyManager.h" />
     <ClInclude Include="tools\MyTools.h" />
-    <ClInclude Include="tools\OBJ.h" />
+    <ClInclude Include="Components\OBJ.h" />
     <ClInclude Include="tools\Scene.h" />
     <ClInclude Include="tools\SceneManager.h" />
-    <ClInclude Include="tools\Transform.h" />
+    <ClInclude Include="Components\Transform.h" />
+    <ClInclude Include="tools\Vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

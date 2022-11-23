@@ -3,6 +3,7 @@
 #include "MyWindow.h"
 #include <tchar.h>
 #include "MyTools.h"
+#include "define.h"
 
 class Core
 {
@@ -11,7 +12,6 @@ public:
 	int fps,frame;
 	float sec,frameTime,timeCount;
 	WCHAR timerStr[24];
-	RECT timerRt;
 
 	//
 	OBJ obj;
@@ -25,13 +25,19 @@ public:
 	
 	int Init(HWND ,POINT);
 	void Progress();
-
+public:
+	//GDI fun====
+	void InitGDI();
+	
 private:
 	//HWND hWnd;
 	HDC hdc,memDC,backDC;
 	HBITMAP hBit,oldBit,backBit,backOldBit;
 	POINT resolution;
-	Core() { fps = 0; sec = 0; frame = 0; frameTime = 1 / 150.f; timeCount = 0; }
+
+	
+
+	Core();
 	~Core();
 	void Update();
 	void Render();

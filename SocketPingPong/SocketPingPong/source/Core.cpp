@@ -1,15 +1,17 @@
 #include "Core.h"
+Core::Core()
+	:hdc(0), memDC(0), hBit(0), oldBit(0), backBit(0), backOldBit(0)
+{
 
+	fps = 0; sec = 0; frame = 0; frameTime = 1 / 150.f; timeCount = 0;
+}
 int Core::Init(HWND HWnd, POINT Resolution) {
 	//this->hWnd = hWnd;
 	this->resolution = Resolution;
 	rt = { 0,0,this->resolution.x,this->resolution.y };
 	AdjustWindowRect(&rt, WS_OVERLAPPEDWINDOW, true);
-	//SetWindowPos(hWnd, nullptr, 100, 100, rt.right - rt.left, rt.bottom - rt.top, 0);	//HWND_TOPMOST
-
-	//Timer
-	timerRt = { rt.right - 100 , rt.top + 20 ,rt.right,rt.top + 40 };
-
+	
+	GDI::Instance()->Init();
 	hdc = GetDC(Window::hWnd);
 	memDC = CreateCompatibleDC(hdc);
 	backDC= CreateCompatibleDC(hdc);
@@ -17,14 +19,22 @@ int Core::Init(HWND HWnd, POINT Resolution) {
 	oldBit = (HBITMAP)SelectObject(memDC, hBit);
 	backBit= CreateCompatibleBitmap(hdc, resolution.x, resolution.y);
 	backOldBit= (HBITMAP)SelectObject(backDC, backBit);
+	//==stock resources
 	FillRect(backDC, &rt, (HBRUSH)GetStockObject((WHITE_BRUSH)));
+
+	InitGDI();
 
 	swprintf_s(timerStr, L"fps: %d", fps);
 
 	obj.transform.SetSize(100, 100);
-	obj.transform.MoveTo(100, 100);
+	obj.transform.MoveTo(0, 0);
+	obj.CreateCollider();
 	
 	return S_OK;
+}
+void Core::InitGDI() {
+	
+	
 }
 void Core::Progress() {
 	
@@ -65,4 +75,6 @@ Core::~Core() {
 	DeleteDC(backDC);
 	DeleteObject(hBit);
 	DeleteObject(backBit);
+
+	
 }
