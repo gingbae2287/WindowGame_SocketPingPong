@@ -56,6 +56,9 @@ public:
         if (dis == 0.f) return{ 0.f,0.f };
         return{ x / dis,y / dis };
     }
+    float Dot(Vector2 v1, Vector2 v2) { //³»Àû
+        return v1.x * v2.x + v1.y * v2.y;
+    }
     
 };
 

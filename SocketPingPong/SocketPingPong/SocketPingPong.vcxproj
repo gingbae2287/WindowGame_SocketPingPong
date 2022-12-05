@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClCompile Include="Components\Collider.cpp" />
     <ClCompile Include="Components\OBJ.cpp" />
+    <ClCompile Include="source\Player.cpp" />
     <ClCompile Include="tools\MyGDI.cpp" />
     <ClCompile Include="source\Core.cpp" />
     <ClCompile Include="source\MyWindow.cpp" />
@@ -152,6 +153,7 @@
     <ClInclude Include="header\Core.h" />
     <ClInclude Include="header\framework.h" />
     <ClInclude Include="header\MyWindow.h" />
+    <ClInclude Include="header\Player.h" />
     <ClInclude Include="header\Resource.h" />
     <ClInclude Include="header\targetver.h" />
     <ClInclude Include="Components\Collider.h" />

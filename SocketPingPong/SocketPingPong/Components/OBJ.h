@@ -1,12 +1,13 @@
 #pragma once
-#include "Transform.h"
+//#include "Transform.h"
 //#include <Windows.h>
 #include "GingTime.h"
-
-class Collider;
+#include "Component.h"
+//class Collider;
+enum ColliderType;
 class OBJ
 {
-private:
+protected:
 	//==state var
 	bool isActive;
 	
@@ -19,23 +20,20 @@ public:
 	//===state func
 	void SetActive(bool act) { isActive = act; }
 	//==component func
-	void CreateCollider();
+	void CreateCollider(ColliderType);
 public:
 	Transform transform;
 
-	OBJ() {
-		collider = nullptr;
-		isActive = true;
-	}
+	OBJ();
 	Vector2 GetPosition() { return transform.GetPosition(); }
-	void Update();
+	virtual void Update() {}
 		
-	void Render(HDC);
-	~OBJ();
+	virtual void Render(HDC) {}
 
-	
-private:
-	const int speed = 300;
+	void SetSize(int, int);
+	void SetPos(float, float);
+	void SetPos(Vector2);
+	~OBJ();
 	
 	
 };

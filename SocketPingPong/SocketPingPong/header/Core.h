@@ -11,10 +11,9 @@ public:
 	//Timer
 	int fps,frame;
 	float sec,frameTime,timeCount;
-	WCHAR timerStr[24];
+	WCHAR fpsStr[24];
 
 	//
-	OBJ obj;
 	//
 	RECT rt;
 	static Core* Instance() {

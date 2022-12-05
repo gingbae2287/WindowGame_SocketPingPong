@@ -1,4 +1,6 @@
 #include "Core.h"
+#include "Player.h"
+Player a;
 Core::Core()
 	:hdc(0), memDC(0), hBit(0), oldBit(0), backBit(0), backOldBit(0)
 {
@@ -23,12 +25,8 @@ int Core::Init(HWND HWnd, POINT Resolution) {
 	FillRect(backDC, &rt, (HBRUSH)GetStockObject((WHITE_BRUSH)));
 
 	InitGDI();
+	swprintf_s(fpsStr, L"fps: %d", fps);
 
-	swprintf_s(timerStr, L"fps: %d", fps);
-
-	obj.transform.SetSize(100, 100);
-	obj.transform.MoveTo(0, 0);
-	obj.CreateCollider();
 	
 	return S_OK;
 }
@@ -45,7 +43,7 @@ void Core::Progress() {
 	if (sec < 1) return;
 	sec--;
 	fps = frame;
-	swprintf_s(timerStr, L"fps: %d", fps);
+	swprintf_s(fpsStr, L"fps: %d", fps);
 	frame = 0;
 	
 	
@@ -53,17 +51,15 @@ void Core::Progress() {
 }
 void Core::Update() {
 	Time::Instance()->Update();
-	obj.Update();
-	
+	a.Update();
 	
 }
 void Core::Render() {
 	BitBlt(memDC, 0, 0, resolution.x, resolution.y, backDC, 0, 0, SRCCOPY);
 	//Rectangle(hdc,0, 0, 200, 200);
 	//SetTextAlign(hdc, TA_LEFT | TA_TOP);
-	obj.Render(memDC);
-	TextOut(memDC, resolution.x-100, 30, timerStr, wcslen(timerStr));
-
+	TextOut(memDC, resolution.x-100, 30, fpsStr, wcslen(fpsStr));
+	a.Render(memDC);
 	BitBlt(hdc, 0, 0, resolution.x, resolution.y, memDC, 0, 0, SRCCOPY);
 }
 
