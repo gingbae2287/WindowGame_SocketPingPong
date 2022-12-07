@@ -11,8 +11,20 @@ void OBJ::CreateCollider(ColliderType type= ColliderType::BOX) {
 	collider->owner = this;
 }
 
+void OBJ::CreateRigidbody() {
+	if (rigid != nullptr) return;
+	rigid = new Rigidbody;
+	rigid->owner = this;
+}
+
+void OBJ::Collision(Collider* other) {
+	OnCollision(other);
+	if (rigid != nullptr) rigid->Collision(other);
+}
+
 OBJ::~OBJ() {
 	if (collider != nullptr) delete collider;
+	if (rigid != nullptr) delete rigid;
 }
 
 void OBJ::SetSize(int x, int y) {

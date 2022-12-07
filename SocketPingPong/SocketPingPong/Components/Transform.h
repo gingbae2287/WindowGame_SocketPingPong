@@ -9,6 +9,18 @@ struct Position {
 	void Move(Vector2 v) { x += v.x; y += v.y; }
 	void MoveTo(float X, float Y) { x = X; y = Y; }
 	void MoveTo(Vector2 v) { x = v.x; y = v.y; }
+	Position operator+(const Vector2& v) {
+		return { x + v.x, y + v.y };
+	}
+	Position operator-(const Vector2& v) {
+		return { x - v.x, y - v.y };
+	}
+	Position operator+=(const Vector2& v) {
+		return *this = *this + v;
+	}
+	Position operator-=(const Vector2& v) {
+		return *this = *this - v;
+	}
 };
 
 struct  Size

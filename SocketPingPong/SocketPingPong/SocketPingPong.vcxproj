@@ -142,6 +142,8 @@
   <ItemGroup>
     <ClCompile Include="Components\Collider.cpp" />
     <ClCompile Include="Components\OBJ.cpp" />
+    <ClCompile Include="Components\Rigidbody.cpp" />
+    <ClCompile Include="source\ball.cpp" />
     <ClCompile Include="source\Player.cpp" />
     <ClCompile Include="tools\MyGDI.cpp" />
     <ClCompile Include="source\Core.cpp" />
@@ -150,6 +152,8 @@
     <ClCompile Include="tools\GingTime.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Components\Rigidbody.h" />
+    <ClInclude Include="header\ball.h" />
     <ClInclude Include="header\Core.h" />
     <ClInclude Include="header\framework.h" />
     <ClInclude Include="header\MyWindow.h" />

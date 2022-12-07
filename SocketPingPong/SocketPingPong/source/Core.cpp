@@ -1,6 +1,8 @@
 #include "Core.h"
 #include "Player.h"
+#include "ball.h"
 Player a;
+Ball b;
 Core::Core()
 	:hdc(0), memDC(0), hBit(0), oldBit(0), backBit(0), backOldBit(0)
 {
@@ -27,7 +29,8 @@ int Core::Init(HWND HWnd, POINT Resolution) {
 	InitGDI();
 	swprintf_s(fpsStr, L"fps: %d", fps);
 
-	
+	b.SetPos(600, 600);
+	a.SetPos(500, 600);
 	return S_OK;
 }
 void Core::InitGDI() {
@@ -51,7 +54,10 @@ void Core::Progress() {
 }
 void Core::Update() {
 	Time::Instance()->Update();
+	
 	a.Update();
+	b.Update();
+	ColliderManager::Instance()->Update();
 	
 }
 void Core::Render() {
@@ -60,6 +66,7 @@ void Core::Render() {
 	//SetTextAlign(hdc, TA_LEFT | TA_TOP);
 	TextOut(memDC, resolution.x-100, 30, fpsStr, wcslen(fpsStr));
 	a.Render(memDC);
+	b.Render(memDC);
 	BitBlt(hdc, 0, 0, resolution.x, resolution.y, memDC, 0, 0, SRCCOPY);
 }
 

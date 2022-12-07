@@ -26,7 +26,7 @@ public:
     }
     template <typename T>
     Vector2 operator*(T value){
-        return { x * value.x, y * value };
+        return { x * value, y * value };
     }
     float operator*(const Vector2& v){
         return x * v.x+ y * v.y ;
@@ -40,6 +40,9 @@ public:
 
     bool operator==(const Vector2& v){
         return x == v.x && y == v.y;
+    }
+    bool operator==(const int a) {
+        return x == a && y ==a;
     }
     bool operator!=(const Vector2& v){
         return !(*this == v);

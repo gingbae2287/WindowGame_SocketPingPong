@@ -26,10 +26,12 @@ void GDI::Init() {
 	//hdc = dc; 
 
 	brushs[(UINT)BRUSH_TYPE::HOLLOW] = (HBRUSH)GetStockObject(HOLLOW_BRUSH);
+	brushs[(UINT)BRUSH_TYPE::YELLOW] = CreateSolidBrush(RGB(255, 255, 0));
 	pens[(UINT)PEN_TYPE::RED] = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
 	pens[(UINT)PEN_TYPE::GREEN] = CreatePen(PS_SOLID, 1, RGB(0, 255, 0));
 	pens[(UINT)PEN_TYPE::BLUE] = CreatePen(PS_SOLID, 1, RGB(0, 0, 255));
 }
 GDI::~GDI() {
 	for (int i = 0; i < (UINT)PEN_TYPE::END; i++) DeleteObject(pens[i]);
+	for (int i = 0; i < (UINT)BRUSH_TYPE::END; i++) DeleteObject(brushs[i]);
 }

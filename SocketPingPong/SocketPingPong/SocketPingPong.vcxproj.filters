@@ -52,6 +52,12 @@
     <ClCompile Include="source\Player.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="source\ball.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Rigidbody.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\Core.h">
@@ -106,6 +112,12 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="header\Player.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="header\ball.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Rigidbody.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

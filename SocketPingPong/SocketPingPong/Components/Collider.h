@@ -5,6 +5,7 @@
 #include <vector>
 class OBJ;
 class Collider;
+class Rigidbody;
 enum ColliderType {
 	BOX,
 	CIRCLE,
@@ -15,6 +16,7 @@ public:
 	void NewCollider(Collider*);
 	void DeleteCollider(Collider*);
 	bool CheckCollision(Collider*, Collider*);
+	void Update();
 private:
 	std::vector<Collider*> colliders;
 	ColliderManager() {
@@ -26,15 +28,16 @@ class Collider {
 protected:
 	OBJ* owner;
 	friend class OBJ;
+	friend class Rigidbody;
 	Vector2 offset;
 	Vector2 pos;
 	
+	friend class ColliderManager;
 	
 public:
 	ColliderType colType;
 	//==state var
 	bool enable;
-	//OBJ* obj; //부모 오브젝트
 	
 	Collider();
 	void Update();
@@ -87,4 +90,5 @@ public:
 		Ellipse(hdc, pos.x - r, pos.y - r, pos.x + r, pos.y + r);
 	}
 	float GetRadius() {return r;}
+	void SetRadius(float r2) {r = r2;}
 };

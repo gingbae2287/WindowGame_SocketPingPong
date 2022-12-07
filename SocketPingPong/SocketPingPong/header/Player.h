@@ -8,7 +8,7 @@ public:
 	//BoxCollider* col = new BoxCollider;
 	Player();
 	~Player();
-	virtual void Update() {
+	virtual void Update() override {
 		/*if (GetAsyncKeyState(VK_LEFT) & 0x8000) {
 			transform.pos.x -= speed * Time::deltaTime;
 		}
@@ -21,13 +21,16 @@ public:
 		if (GetAsyncKeyState(VK_DOWN) & 0x8000) {
 			transform.pos.y += speed * Time::deltaTime;
 		}
+		//if (rigid) rigid->Update();
 		if (collider) collider->Update();
+		
 		//col->Update();
 	}
 
-	virtual void Render(HDC hdc) {
+	virtual void Render(HDC hdc) override {
 		if (!isActive) return;
 		//object render
+		SelectGDI tmpGdi2(hdc, BRUSH_TYPE::YELLOW);
 		Rectangle(
 			hdc,
 			transform.pos.x - transform.size.hx,

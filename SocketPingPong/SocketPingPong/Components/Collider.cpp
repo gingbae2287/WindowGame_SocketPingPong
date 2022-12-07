@@ -1,5 +1,6 @@
-#include "Collider.h"
+
 #include "OBJ.h"
+
 void ColliderManager::NewCollider(Collider* col) {
 	colliders.push_back(col);
 }
@@ -9,6 +10,17 @@ void ColliderManager::DeleteCollider(Collider* col) {
 		if (*it == col) {
 			colliders.erase(it);
 			break;
+		}
+	}
+}
+
+void ColliderManager::Update() {
+	if (colliders.size() < 2) return;
+	for (std::vector<Collider*>::iterator it = colliders.begin(); it != colliders.end() - 1; it++) {
+		for (std::vector<Collider*>::iterator it2 = it + 1; it2 != colliders.end(); it2++) {
+			if (!CheckCollision(*it, *it2)) continue;
+			(*it)->owner->Collision(*it2);
+			(*it2)->owner->Collision(*it);
 		}
 	}
 }
