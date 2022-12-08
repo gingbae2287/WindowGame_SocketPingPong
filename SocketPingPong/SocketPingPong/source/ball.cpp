@@ -16,6 +16,8 @@ Ball::Ball() {
 	if (rand % 2) rigid->vel = { speed * (-1),(float)rand };
 	else rigid->vel = { speed ,(float)rand };
 
+	rigid->vel = { -300,0 };
+
 	
 }
 Ball::~Ball() {

@@ -3,6 +3,7 @@
 #include "MyGDI.h"
 #include "Transform.h"
 #include <vector>
+#include <algorithm>
 class OBJ;
 class Collider;
 class Rigidbody;
@@ -35,10 +36,15 @@ protected:
 	friend class ColliderManager;
 	
 public:
-	ColliderType colType;
 	//==state var
+	ColliderType colType;
 	bool enable;
-	
+	//collision 판정 관련
+	std::vector<Collider*> curCollisions;
+	bool isCollision;
+	void CheckCollisionState();
+	void OnCollision(Collider*);
+	/// 
 	Collider();
 	void Update();
 	virtual void Render(HDC hdc) = 0;

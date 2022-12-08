@@ -17,11 +17,17 @@ void ColliderManager::DeleteCollider(Collider* col) {
 void ColliderManager::Update() {
 	if (colliders.size() < 2) return;
 	for (std::vector<Collider*>::iterator it = colliders.begin(); it != colliders.end() - 1; it++) {
+		if (!(*it)->enable) continue;
+		//충돌인지 판별후, Oncollision은 collider enter인 경우만 다룸.
 		for (std::vector<Collider*>::iterator it2 = it + 1; it2 != colliders.end(); it2++) {
+			if (!(*it2)->enable) continue;
 			if (!CheckCollision(*it, *it2)) continue;
-			(*it)->owner->Collision(*it2);
-			(*it2)->owner->Collision(*it);
+			(*it)->OnCollision(*it2);
+			(*it2)->OnCollision(*it);
 		}
+
+		(*it)->CheckCollisionState();
+		//이미 충돌했던 것들을 검사해 stay, exit 경우 체크
 	}
 }
 bool ColliderManager::CheckCollision(Collider* col1, Collider* col2) {
@@ -65,8 +71,41 @@ bool ColliderManager::CheckCollision(Collider* col1, Collider* col2) {
 	return false;
 }
 
-Collider::Collider() {
-	enable = true;
+void Collider::OnCollision(Collider* other) {
+	if (!isCollision) {
+		curCollisions.push_back(other);
+		isCollision = true;
+		return;
+	}
+	auto it = find(curCollisions.begin(), curCollisions.end(), other);
+	if (it == curCollisions.end()) {
+		//전프레임에 other와 충돌 x
+		curCollisions.push_back(other);
+		//this collider의 owner만 호출한다. (othercollider에서도 똑같은 작업이 manager에서 호출된다)
+		owner->OnCollisionEnter(other);
+	}
+}
+void Collider::CheckCollisionState() {
+	//exit의 경우 vector erase를 하므로 for문 조건식 끝에 ++을 안씀
+	for (std::vector<Collider*>::iterator it = curCollisions.begin(); it != curCollisions.end();) {
+		if (ColliderManager::Instance()->CheckCollision(this, *it)) {
+			owner->OnCollisionStay(*it);
+			it++;
+		}
+		else {
+			owner->OnCollisionExit(*it);
+			curCollisions.erase(it);
+		}
+	}
+	if (curCollisions.empty()) isCollision = false;
+}
+
+
+
+Collider::Collider()
+:isCollision(false), enable(true)
+{
+	
 	offset = { 0,0 };
 	ColliderManager::Instance()->NewCollider(this);
 	//owner = nullptr;

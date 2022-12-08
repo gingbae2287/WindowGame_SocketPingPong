@@ -66,12 +66,25 @@ obj정보를 뭘로 넘겨주나?
 질량, 속도 존재
 충돌시 해당 오브젝트에 rigidbody가 있으면 rigidbody에서 운동재정의
 ->튕겨나가 방향이 바뀌어도 다음 프레임에 여전히 충돌처리중일 수 있다. 이러면 다시 방향이 바뀌는것을 방지해야한다->해당 collider와 충돌이 벗어남을 감지해야함 onColliderExit처럼
+-collision enter stay exit 구현필요.->각 collider가 상대 collider의 포인터를 임시로 가지고 있는다. 충돌 호출시 기존의 collider포인터와 충돌호출된 상대 collider가 같은지 비교하여 판단?? -> 한번에 여러 collider 충돌시는? 다 저장해야하나?
+
+1.각 콜라이더에 충돌중인 collider의 포인터를 담은 벡터 생성.
+2.hashmap을 사용한다. => collider생성시 collidermanager에서 순서대로 고유번호(ID)를 부여
+충돌처리는 매 프레임 호출하기 때문에 다중 충돌시 탐색이 빠른 hashmap으로 해당 coll이 있는지 확인이 빠름
+허나 다중충돌이 collider가 여러개 겹치는 경우가 적고 겹쳐도 겹치는 수가 보통 적어 큰 상관은 없을듯
 ======
 
 
 [처리과정]
 오브젝트들의 update 처리 후 , 씬에서 collider들의 충돌을 체크.
-충돌판정된 collider들의 owner 오브젝트들에게 Oncollision 호출 (사용자가 구현한 코드실행)
+충돌판정된 collider에게 충돌처리 함수 호출.
+각 collider에서 충돌상태(enter stay exit에 따라 owner Object에게 collider enter,stay,exit 함수 호출->사용자가 작성한 코드 실행)
+충돌 상태는 해당 콜라이더가 충돌시 상대 collider객체의 포인터를 벡터에 저장(다중충돌처리를 위해)
+-> 더 좋은 방법이 안떠오른다.
+충돌 호출시 마다 벡터내에 collider를 검사하며 상대 collider와의 enter stay 체크.
+exit는?
+=>collidermgr에서 두 콜라이더를 인자로 받아 충돌상태인지 검사하는 CheckCollision함수를 이미 만들었다. 각 콜라이더에 충돌중인지를 나타내는 bool 변수 (isCollision)을 통해 하나 이상의 충돌 대상이 존재하면 isCollision=true와 충돌 대상의 collider객체 포인터를 벡터에 저장한다. -> CheckCollision에서 첫번째 for문의 collider* iter->isCollision == true 일 경우 collider 객체 자체에서 checkCollision을 통해 해당 collider 객체와 여전히 충돌중인지 판단. 
+
 
 rigidbody가 있으면 rigidbody의 충돌 함수 호출
 (일단 한쪽만 rigid가있는 상황만 구현)

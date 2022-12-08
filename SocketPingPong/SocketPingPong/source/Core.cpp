@@ -29,8 +29,8 @@ int Core::Init(HWND HWnd, POINT Resolution) {
 	InitGDI();
 	swprintf_s(fpsStr, L"fps: %d", fps);
 
-	b.SetPos(600, 600);
-	a.SetPos(500, 600);
+	b.SetPos(1000, 600);
+	a.SetPos(400, 600);
 	return S_OK;
 }
 void Core::InitGDI() {

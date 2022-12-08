@@ -35,8 +35,10 @@ public:
 	virtual void Update() {}
 		
 	virtual void Render(HDC) {}
-	void Collision(Collider*);
-	virtual void OnCollision(Collider*) {}
+
+	virtual void OnCollisionEnter(Collider*) {}
+	virtual void OnCollisionStay(Collider*) {}
+	virtual void OnCollisionExit(Collider*) {}
 
 	void SetSize(int, int);
 	void SetPos(float, float);

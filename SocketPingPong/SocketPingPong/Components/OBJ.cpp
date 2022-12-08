@@ -17,10 +17,6 @@ void OBJ::CreateRigidbody() {
 	rigid->owner = this;
 }
 
-void OBJ::Collision(Collider* other) {
-	OnCollision(other);
-	if (rigid != nullptr) rigid->Collision(other);
-}
 
 OBJ::~OBJ() {
 	if (collider != nullptr) delete collider;
