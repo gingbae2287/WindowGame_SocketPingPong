@@ -2,4 +2,5 @@
 #include "OBJ.h"
 #include "GingTime.h"
 #include "MyGDI.h"
+#include "SceneManager.h"
 

@@ -71,10 +71,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\coding\socketPingpong\SocketPingPong\SocketPingPong\socket;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\tools;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\source;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\header;$(IncludePath)</IncludePath>
+    <IncludePath>C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Objects;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Scene;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\socket;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\tools;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\source;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\header;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\coding\socketPingpong\SocketPingPong\SocketPingPong\socket;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\tools;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\source;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\header;$(IncludePath)</IncludePath>
+    <IncludePath>C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Objects;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Scene;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\socket;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\tools;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\source;C:\coding\socketPingpong\SocketPingPong\SocketPingPong\header;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -143,21 +143,26 @@
     <ClCompile Include="Components\Collider.cpp" />
     <ClCompile Include="Components\OBJ.cpp" />
     <ClCompile Include="Components\Rigidbody.cpp" />
-    <ClCompile Include="source\ball.cpp" />
-    <ClCompile Include="source\Player.cpp" />
+    <ClCompile Include="Scene\Scene1.cpp" />
+    <ClCompile Include="Objects\ball.cpp" />
+    <ClCompile Include="Objects\Player.cpp" />
+    <ClCompile Include="Scene\Scene1.h" />
     <ClCompile Include="tools\MyGDI.cpp" />
     <ClCompile Include="source\Core.cpp" />
     <ClCompile Include="source\MyWindow.cpp" />
     <ClCompile Include="source\SocketPingPong.cpp" />
     <ClCompile Include="tools\GingTime.cpp" />
+    <ClCompile Include="Scene\Scene.cpp" />
+    <ClCompile Include="Scene\SceneManager.cpp" />
+    <ClCompile Include="Objects\Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Components\Rigidbody.h" />
-    <ClInclude Include="header\ball.h" />
+    <ClInclude Include="Objects\ball.h" />
     <ClInclude Include="header\Core.h" />
     <ClInclude Include="header\framework.h" />
     <ClInclude Include="header\MyWindow.h" />
-    <ClInclude Include="header\Player.h" />
+    <ClInclude Include="Objects\Player.h" />
     <ClInclude Include="header\Resource.h" />
     <ClInclude Include="header\targetver.h" />
     <ClInclude Include="Components\Collider.h" />
@@ -168,10 +173,11 @@
     <ClInclude Include="tools\KeyManager.h" />
     <ClInclude Include="tools\MyTools.h" />
     <ClInclude Include="Components\OBJ.h" />
-    <ClInclude Include="tools\Scene.h" />
-    <ClInclude Include="tools\SceneManager.h" />
+    <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Components\Transform.h" />
+    <ClInclude Include="Scene\SceneManager.h" />
     <ClInclude Include="tools\Vector2.h" />
+    <ClInclude Include="Objects\Wall.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

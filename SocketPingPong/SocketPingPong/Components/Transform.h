@@ -33,6 +33,7 @@ struct  Size
 	~Size() {}
 
 	void SetSize(int X, int Y) { x = X; y = Y; hx = (int)x / 2; hy = (int)y / 2;}
+	void SetSize(Vector2 v) { x = v.x; y = v.y; hx = (int)x / 2; hy = (int)y / 2;}
 };
 class Transform
 {

@@ -11,3 +11,8 @@ enum class PEN_TYPE {
 	BLUE,
 	END
 };
+
+enum SCENE_TYPE {
+	START,
+	END,
+};

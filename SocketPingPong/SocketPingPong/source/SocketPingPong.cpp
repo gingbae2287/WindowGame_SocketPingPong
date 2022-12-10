@@ -13,9 +13,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(lpCmdLine);
 
     // TODO: 여기에 코드를 입력합니다.
-    MessageBox(nullptr, L"core 객체 초기화실패", L"error", MB_OK);
     if (!Window::InitWindow(hInstance, L"엔진테스트", 1280, 800)) {
-       // MessageBox(nullptr, L"core 객체 초기화실패", L"error", MB_OK);
         exit(-1);
     }
     if (FAILED((Core::Instance()->Init(Window::hWnd, POINT{ Window::Width(),Window::Height()})))) {

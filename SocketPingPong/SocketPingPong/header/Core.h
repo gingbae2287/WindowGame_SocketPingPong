@@ -24,10 +24,7 @@ public:
 	
 	int Init(HWND ,POINT);
 	void Progress();
-public:
-	//GDI fun====
-	void InitGDI();
-	
+
 private:
 	//HWND hWnd;
 	HDC hdc,memDC,backDC;

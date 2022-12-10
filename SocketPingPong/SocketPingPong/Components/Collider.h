@@ -7,6 +7,7 @@
 class OBJ;
 class Collider;
 class Rigidbody;
+class Scene;
 enum ColliderType {
 	BOX,
 	CIRCLE,
@@ -14,14 +15,15 @@ enum ColliderType {
 class ColliderManager {
 	SINGLETON(ColliderManager)
 public:
-	void NewCollider(Collider*);
-	void DeleteCollider(Collider*);
 	bool CheckCollision(Collider*, Collider*);
 	void Update();
+	Scene* curScene;
+	void ChangeScene(Scene* scene) { curScene = scene; }
+	//void ChangeScene(std::vector<Collider*>*);
 private:
-	std::vector<Collider*> colliders;
+	//std::vector<Collider*> *colliders;
+
 	ColliderManager() {
-		colliders.reserve(20);
 	}
 
 };
@@ -32,24 +34,30 @@ protected:
 	friend class Rigidbody;
 	Vector2 offset;
 	Vector2 pos;
-	
+	std::vector<Collider*> curCollisions;
 	friend class ColliderManager;
 	
 public:
+	Size size;
 	//==state var
 	ColliderType colType;
 	bool enable;
 	//collision 판정 관련
-	std::vector<Collider*> curCollisions;
+	
 	bool isCollision;
 	void CheckCollisionState();
 	void OnCollision(Collider*);
 	/// 
 	Collider();
-	void Update();
-	virtual void Render(HDC hdc) = 0;
 	~Collider();
+
+	void Update();
+	virtual void Render(HDC hdc) {}
+	
 	Vector2 GetPos() { return pos; }
+
+	virtual void SetSize(Vector2);
+	virtual void SetSize(int, int);
 
 };
 
@@ -57,7 +65,7 @@ class BoxCollider :public Collider {
 private:
 	
 public:
-	Size size;
+	
 	BoxCollider() {
 		size.SetSize(120, 80);
 		colType = BOX;
@@ -93,8 +101,13 @@ public:
 		if (!enable) return;
 		SelectGDI tmpGdi(hdc, PEN_TYPE::GREEN);
 		SelectGDI tmpGdi2(hdc, BRUSH_TYPE::HOLLOW);
-		Ellipse(hdc, pos.x - r, pos.y - r, pos.x + r, pos.y + r);
+		//Ellipse(hdc, pos.x - r, pos.y - r, pos.x + r, pos.y + r);
+		Ellipse(hdc, pos.x - size.hx, pos.y - size.hx, pos.x + size.hx, pos.y + size.hx);
 	}
-	float GetRadius() {return r;}
-	void SetRadius(float r2) {r = r2;}
+	//타원이 아닌 원으로만 인식하도록 재정의. 반지름은 size의 x로 인식. y는 무시
+	//충돌처리 때문
+	virtual void SetSize(Vector2);
+	virtual void SetSize(int, int);
+	float GetRadius();
+	void SetRadius(int r2);
 };
