@@ -1,5 +1,7 @@
 #include "MyWindow.h"
 #include <iostream>
+#include "define.h"
+#include "SceneManager.h"
 #define MAX_LOADSTRING 100
 #define ID_INPUTNAME 11
 #define ID_NAMEBUTTON 12
@@ -68,7 +70,7 @@ bool Window::InitWindow(
     return true;
 }
 
-
+HWND nameFieldWnd, nameBt;
 /// //Proc
 /*
 static RECT rt;
@@ -97,6 +99,19 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     {
     case WM_CREATE: {
 
+        break;
+    }
+
+    case WM_COMMAND:
+    {
+        int wmId = LOWORD(wParam);
+        // 메뉴 선택을 구문 분석합니다:
+        switch (wmId)
+        {
+        case BUTTON_CREATEROOM:
+            SceneManager::Instance()->ChangeScene(SCENE_TYPE::GAME);
+            break;
+        }
         break;
     }
     case WM_DESTROY:

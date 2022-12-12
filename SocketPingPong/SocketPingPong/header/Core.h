@@ -1,9 +1,8 @@
 #pragma once
-#include <windows.h>
+
 #include "MyWindow.h"
-#include <tchar.h>
-#include "MyTools.h"
-#include "define.h"
+
+
 
 class Core
 {

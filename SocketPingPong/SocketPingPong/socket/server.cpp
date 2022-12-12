@@ -10,7 +10,7 @@
 
 using namespace std;
 
-#pragma comment(lib, "Ws2_32.lib")
+#pragma comment(lib, "ws2_32.lib")
 // g++ -o server.exe server.cpp -lws2_32 -Wall
 
 #define PORT 7777

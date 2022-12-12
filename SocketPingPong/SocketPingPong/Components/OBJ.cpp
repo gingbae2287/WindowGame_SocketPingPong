@@ -1,4 +1,6 @@
 #include "OBJ.h"
+#include "Collider.h"
+#include "Rigidbody.h"
 #include "SceneManager.h"
 #include "Scene.h"
 OBJ::OBJ() 

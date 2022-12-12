@@ -1,10 +1,11 @@
 #pragma once
 #include "OBJ.h"
+#include <windows.h>
 #include <random>
 class Ball :public OBJ {
 private:
 	bool isCollision;
-	WCHAR text[48];
+	//WCHAR text[48];
 	int colCount;
 public:
 	int r;

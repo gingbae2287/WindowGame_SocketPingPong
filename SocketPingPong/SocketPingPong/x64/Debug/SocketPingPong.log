@@ -1,21 +1,87 @@
-﻿  ball.cpp
+﻿  Collider.cpp
 C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Transform.h(36,33): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Transform.h(36,42): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(83,10): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(82,10): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(81,10): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(80,10): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(85,29): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(86,30): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(87,30): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(88,31): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(105,73): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(105,56): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(105,39): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(105,22): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Objects\ball.cpp(29,94): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Objects\ball.cpp(29,73): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Objects\ball.cpp(29,52): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Objects\ball.cpp(29,31): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Objects\ball.cpp(32,48): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(72,29): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(73,30): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(74,30): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(75,31): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.cpp(146,9): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.cpp(145,9): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.cpp(144,9): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.cpp(143,9): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.cpp(154,72): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.cpp(154,55): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.cpp(154,38): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.cpp(154,21): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.cpp(158,20): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.cpp(158,16): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.cpp(163,8): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.cpp(166,13): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.cpp(170,6): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\tools\Vector2.h(13,26): warning C4244: '=': 'T'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              T=int
+          ]
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.cpp(117,17): message : 컴파일되는 함수 템플릿 인스턴스화 'Vector2::Vector2<int>(T,T)'에 대한 참조를 확인하세요.
+          with
+          [
+              T=int
+          ]
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\tools\Vector2.h(13,33): warning C4244: '=': 'T'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              T=int
+          ]
+  OBJ.cpp
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Transform.h(36,33): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Transform.h(36,42): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(72,29): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(73,30): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(74,30): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(75,31): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\tools\Vector2.h(13,26): warning C4244: '=': 'T'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              T=int
+          ]
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\OBJ.cpp(58,46): message : 컴파일되는 함수 템플릿 인스턴스화 'Vector2::Vector2<int>(T,T)'에 대한 참조를 확인하세요.
+          with
+          [
+              T=int
+          ]
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\tools\Vector2.h(13,33): warning C4244: '=': 'T'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              T=int
+          ]
+  Player.cpp
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Transform.h(36,33): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Transform.h(36,42): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Objects\Player.cpp(48,19): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Objects\Player.cpp(47,19): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Objects\Player.cpp(46,19): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Objects\Player.cpp(45,19): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Scene.cpp
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Transform.h(36,33): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Transform.h(36,42): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(72,29): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(73,30): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(74,30): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(75,31): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  SceneManager.cpp
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Transform.h(36,33): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Transform.h(36,42): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(72,29): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(73,30): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(74,30): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\Components\Collider.h(75,31): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Core.cpp
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\header\resource.h(14,1): warning C4005: 'IDC_SOCKETPINGPONG': 매크로 재정의
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\header\resource.h(12,1): message : 'IDC_SOCKETPINGPONG'의 이전 정의를 참조하십시오.
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\source\Core.cpp(64,61): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  MyWindow.cpp
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\header\resource.h(14,1): warning C4005: 'IDC_SOCKETPINGPONG': 매크로 재정의
+C:\coding\socketPingpong\SocketPingPong\SocketPingPong\header\resource.h(12,1): message : 'IDC_SOCKETPINGPONG'의 이전 정의를 참조하십시오.
+  코드를 생성하고 있습니다...
   SocketPingPong.vcxproj -> C:\coding\socketPingpong\SocketPingPong\x64\Debug\SocketPingPong.exe

@@ -1,8 +1,13 @@
+#include "NetworkManager.h"
 #include "Scene1.h"
 #include "Player.h"
 #include "ball.h"
 #include "Wall.h"
+//#include "define.h"
+#include "Collider.h"
 void Scene1::Start() {
+	NetworkManager::Instance()->CreateRoom();
+
 	Wall* wall[4];
 	
 	

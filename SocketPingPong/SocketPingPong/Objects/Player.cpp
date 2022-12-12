@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "SceneManager.h"
-
+#include "GingTime.h"
+#include "MyGDI.h"
 Player::Player() {
 	SetSize(100, 100);
 	CreateCollider(ColliderType::BOX);
@@ -46,7 +47,7 @@ void Player::Render(HDC hdc){
 		transform.pos.x + transform.size.hx,
 		transform.pos.y + transform.size.hy);
 	//component render====
-	if (collider) collider->Render(hdc);
+	//if (collider) collider->Render(hdc);
 
 	//TextOut(hdc, 1280/2, 100, text, wcslen(text));
 	//col->Render(hdc);

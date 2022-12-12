@@ -1,8 +1,17 @@
 
+#include "Collider.h"
+#include "Rigidbody.h"
 #include "OBJ.h"
 #include "Scene.h"
 #include "SceneManager.h"
+#include "MyGDI.h"
 
+
+ColliderManager::ColliderManager()
+:curScene(nullptr)
+{
+
+}
 void ColliderManager::Update() {
 	if (curScene->colliders.size() < 2) return;
 	for (std::vector<Collider*>::iterator it = curScene->colliders.begin(); it != curScene->colliders.end() - 1; it++) {
@@ -66,7 +75,7 @@ void Collider::OnCollision(Collider* other) {
 		//this collider의 owner만 호출한다. (othercollider에서도 똑같은 작업이 manager에서 호출된다)
 		//OnColliderEnter
 		curCollisions.push_back(other);
-		if (owner->GetRigidbody()) owner->GetRigidbody()->Collision(other);
+		if (owner->GetRigidbody() != nullptr) owner->GetRigidbody()->Collision(other);
 		owner->OnCollisionEnter(other);
 		///======
 		return;
@@ -76,7 +85,7 @@ void Collider::OnCollision(Collider* other) {
 		//전프레임에 other와 충돌 x
 		//OnColliderEnter
 		curCollisions.push_back(other);
-		if (owner->GetRigidbody()) owner->GetRigidbody()->Collision(other);
+		if (owner->GetRigidbody() != nullptr) owner->GetRigidbody()->Collision(other);
 		owner->OnCollisionEnter(other);
 		///======
 		
@@ -91,6 +100,7 @@ void Collider::CheckCollisionState() {
 	for (std::vector<Collider*>::iterator it = curCollisions.begin(); it != curCollisions.end();) {
 
 		if (ColliderManager::Instance()->CheckCollision(this, *it)) {
+			if (owner->GetRigidbody()!=nullptr) owner->GetRigidbody()->Collision(*it);
 			owner->OnCollisionStay(*it);
 			++it;
 		}
@@ -107,7 +117,7 @@ void Collider::CheckCollisionState() {
 
 
 Collider::Collider()
-:isCollision(false), enable(true)
+:isCollision(false), enable(true),owner(nullptr),colType()
 {
 	
 	offset = { 0,0 };
@@ -128,6 +138,26 @@ void Collider::SetSize(Vector2 v) {
 }
 void Collider::SetSize(int x, int y) {
 	size.SetSize(x, y);
+}
+
+void BoxCollider::Render(HDC hdc) {
+	if (!enable) return;
+	SelectGDI tmpGdi(hdc, PEN_TYPE::GREEN);
+	SelectGDI tmpGdi2(hdc, BRUSH_TYPE::HOLLOW);
+	Rectangle(
+		hdc,
+		pos.x - size.hx,
+		pos.y - size.hy,
+		pos.x + size.hx,
+		pos.y + size.hy);
+}
+
+void CircleCollider::Render(HDC hdc) {
+	if (!enable) return;
+	SelectGDI tmpGdi(hdc, PEN_TYPE::GREEN);
+	SelectGDI tmpGdi2(hdc, BRUSH_TYPE::HOLLOW);
+	//Ellipse(hdc, pos.x - r, pos.y - r, pos.x + r, pos.y + r);
+	Ellipse(hdc, pos.x - size.hx, pos.y - size.hx, pos.x + size.hx, pos.y + size.hx);
 }
 
 void CircleCollider::SetSize(Vector2 v) {

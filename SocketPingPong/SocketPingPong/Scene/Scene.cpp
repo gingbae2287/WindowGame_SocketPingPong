@@ -1,5 +1,7 @@
 #include "Scene.h"
-
+#include "SceneManager.h"
+#include "OBJ.h"
+#include "Collider.h"
 Scene::Scene() {
 
 }
@@ -9,6 +11,22 @@ Scene::~Scene() {
 		if ((*it) != nullptr) delete((*it));
 	}*/
 	for (int i = 0; i < objs.size(); i++) delete(objs[i]);
+}
+
+void Scene::Update() {
+	for (vector<OBJ*>::iterator it = objs.begin(); it != objs.end(); it++) {
+		(*it)->Update();
+	}
+	ColliderManager::Instance()->Update();
+}
+void Scene::Render(HDC hdc) {
+	for (vector<OBJ*>::iterator it = objs.begin(); it != objs.end(); it++) {
+		(*it)->Render(hdc);
+	}
+	if (!SceneManager::Instance()->ColliderRender) return;
+	for (vector<Collider*>::iterator it = colliders.begin(); it != colliders.end(); it++) {
+		(*it)->Render(hdc);
+	}
 }
 
 

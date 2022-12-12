@@ -1,4 +1,7 @@
+
 #include "Core.h"
+#include "MyTools.h"
+
 Core::Core()
 	:hdc(0), memDC(0), hBit(0), oldBit(0), backBit(0), backOldBit(0)
 {
@@ -13,6 +16,7 @@ int Core::Init(HWND HWnd, POINT Resolution) {
 
 	GDI::Instance()->Init();
 	SceneManager::Instance()->Init();
+	NetworkManager::Instance()->Init();
 
 	hdc = GetDC(Window::hWnd);
 	memDC = CreateCompatibleDC(hdc);
@@ -31,7 +35,8 @@ int Core::Init(HWND HWnd, POINT Resolution) {
 }
 
 void Core::Progress() {
-	
+	if (SceneManager::Instance()->IsStartScene()) return;
+	if (!SceneManager::Instance()->isRun) return;
 	Update();
 	Render();
 	frame++;

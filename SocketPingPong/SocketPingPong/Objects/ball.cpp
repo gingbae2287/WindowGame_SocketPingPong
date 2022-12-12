@@ -1,16 +1,18 @@
 #include "ball.h"
 
+#include "Collider.h"
+#include "Rigidbody.h"
 Ball::Ball():
 isCollision(false)
 {
 	colCount = 0;
-	swprintf_s(text, L"Ãæµ¹È½¼ö: %d", colCount);
+	//swprintf_s(text, L"Ãæµ¹È½¼ö: %d", colCount);
 	r = 30;
 	speed = 200; 
 	
 	CreateCollider(ColliderType::CIRCLE);
 	CreateRigidbody();
-	((CircleCollider*)collider)->SetRadius(r-10);
+	((CircleCollider*)collider)->SetRadius(r-5);
 	
 	std::random_device rd;
 	std::mt19937 gen(rd());
@@ -27,9 +29,9 @@ void Ball::Update() {
 }
 void Ball::Render(HDC hdc){
 	Ellipse(hdc, transform.pos.x - r, transform.pos.y - r, transform.pos.x + r, transform.pos.y + r);
-	if (collider) collider->Render(hdc);
+	//if (collider) collider->Render(hdc);
 
-	TextOut(hdc, 1280 / 2, 100, text, wcslen(text));
+	//TextOut(hdc, 1280 / 2, 100, text, wcslen(text));
 }
 
 void Ball::OnCollisionEnter(Collider* other)
@@ -37,7 +39,8 @@ void Ball::OnCollisionEnter(Collider* other)
 	if (!isCollision) {
 		isCollision = true;
 		colCount++;
-		swprintf_s(text, L"Ãæµ¹È½¼ö: %d",colCount);
+		//swprintf_s(text, L"Ãæµ¹È½¼ö: %d",colCount);
+		//if(rigid->vel.x<1000 && rigid->vel.x>-1000) rigid->vel.x *= 1.05;
 	}
 }
 void Ball::OnCollisionStay(Collider* other)

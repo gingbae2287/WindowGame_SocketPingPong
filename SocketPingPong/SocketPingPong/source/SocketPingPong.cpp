@@ -36,7 +36,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             {
                 TranslateMessage(&msg);
                 DispatchMessage(&msg);
-                //Core::Instance()->Progress();
             }
             
         }

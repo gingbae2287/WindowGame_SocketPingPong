@@ -1,6 +1,6 @@
 #pragma once
-//#include "OBJ.h"
-#include "MyGDI.h"
+#include <windows.h>
+#include "define.h"
 #include "Transform.h"
 #include <vector>
 #include <algorithm>
@@ -8,10 +8,7 @@ class OBJ;
 class Collider;
 class Rigidbody;
 class Scene;
-enum ColliderType {
-	BOX,
-	CIRCLE,
-};
+
 class ColliderManager {
 	SINGLETON(ColliderManager)
 public:
@@ -23,8 +20,7 @@ public:
 private:
 	//std::vector<Collider*> *colliders;
 
-	ColliderManager() {
-	}
+	ColliderManager();
 
 };
 class Collider {
@@ -71,17 +67,7 @@ public:
 		colType = BOX;
 		
 	}
-	virtual void Render(HDC hdc) {
-		if (!enable) return;
-		SelectGDI tmpGdi(hdc, PEN_TYPE::GREEN);
-		SelectGDI tmpGdi2(hdc, BRUSH_TYPE::HOLLOW);
-		Rectangle(
-			hdc,
-			pos.x - size.hx,
-			pos.y - size.hy,
-			pos.x + size.hx,
-			pos.y + size.hy);
-	}
+	virtual void Render(HDC);
 	float Width() { return size.x; }
 	float hWidth() { return size.hx; }
 	float Height() { return size.y; }
@@ -97,13 +83,7 @@ public:
 		r = 100;
 		colType = CIRCLE;
 	}
-	virtual void Render(HDC hdc) {
-		if (!enable) return;
-		SelectGDI tmpGdi(hdc, PEN_TYPE::GREEN);
-		SelectGDI tmpGdi2(hdc, BRUSH_TYPE::HOLLOW);
-		//Ellipse(hdc, pos.x - r, pos.y - r, pos.x + r, pos.y + r);
-		Ellipse(hdc, pos.x - size.hx, pos.y - size.hx, pos.x + size.hx, pos.y + size.hx);
-	}
+	virtual void Render(HDC);
 	//타원이 아닌 원으로만 인식하도록 재정의. 반지름은 size의 x로 인식. y는 무시
 	//충돌처리 때문
 	virtual void SetSize(Vector2);

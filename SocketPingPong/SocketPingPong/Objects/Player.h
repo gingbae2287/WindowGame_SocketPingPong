@@ -1,6 +1,6 @@
 #pragma once
 #include "OBJ.h"
-
+#include <windows.h>
 class Player :public OBJ {
 private:
 	const float speed = 300;

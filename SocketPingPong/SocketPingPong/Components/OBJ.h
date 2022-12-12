@@ -1,8 +1,12 @@
 #pragma once
-#include "GingTime.h"
-#include "Component.h"
+//
+//#include "Component.h"
+#include "Transform.h"
+#include <windows.h>
 //class Collider;
 class Scene;
+class Collider;
+class Rigidbody;
 enum ColliderType;
 class OBJ
 {

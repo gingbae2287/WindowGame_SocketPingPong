@@ -1,4 +1,5 @@
 #include "Wall.h"
+#include "MyGDI.h"
 Wall::Wall() {
 	CreateCollider(BOX);
 }
@@ -6,7 +7,8 @@ Wall::Wall() {
 
 
 void Wall::Render(HDC hdc) {
-	SelectGDI tmpGdi2(hdc, BRUSH_TYPE::YELLOW);
+	SelectGDI tmpGdi(hdc, PEN_TYPE::HOLLOW);
+	SelectGDI tmpGdi2(hdc, BRUSH_TYPE::BLACK);
 	Rectangle(
 		hdc,
 		transform.pos.x - transform.size.hx,

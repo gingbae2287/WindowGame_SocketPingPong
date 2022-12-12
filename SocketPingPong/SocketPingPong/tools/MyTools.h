@@ -1,5 +1,5 @@
 #pragma once
-#include "OBJ.h"
+#include "NetworkManager.h"
 #include "GingTime.h"
 #include "MyGDI.h"
 #include "SceneManager.h"

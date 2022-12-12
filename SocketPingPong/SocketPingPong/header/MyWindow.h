@@ -1,7 +1,6 @@
 #pragma once
 #include "framework.h"
 #include "resource.h"
-//#include "Core.h"
 static HINSTANCE hInst;
 //static HWND hWnd;
 class Window
